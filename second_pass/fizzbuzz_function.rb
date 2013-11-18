@@ -1,2 +1,2 @@
-def fizzbuzz_of
+def fizzbuzz_of(n)
 end

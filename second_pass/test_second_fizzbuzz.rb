@@ -5,6 +5,6 @@ expected = 1
 if actual == expected
   puts "Success!"
 else
-  puts "FAILURE:  Expected 1, but got #{actual}"
+  puts "FAILURE:  Expected 1, but got #{actual.inspect}"
 end
 
