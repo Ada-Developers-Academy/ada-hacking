@@ -1,4 +1,4 @@
-require 'fizzbuzz_function'
+require_relative 'fizzbuzz_function'
 
 actual = fizzbuzz_of(1)
 expected = 1
