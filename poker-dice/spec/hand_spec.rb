@@ -84,6 +84,7 @@ describe PokerDice::Hand do
 
       hand.reroll_dice(1, 3)
 
+      # Dice #1 and #3 should now have new values
       expect( hand.to_s ).to eq("10 10 10 Q K")
     end
   end
