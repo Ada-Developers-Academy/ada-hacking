@@ -47,5 +47,31 @@ describe PokerDice::Hand do
       expect( hand(1, 2, 3, 4, 5).to_s ).to eq( "9 10 J Q K" )
     end
   end
+
+  describe "rerolling some dice" do
+    it "is possible" do
+      # Start with a straight
+      loaded_dice = %w[ 9 10 J Q K ].map {|face_value|
+        double("PokerDice::Die", face_value: face_value)
+      }
+      hand = PokerDice::Hand.new(loaded_dice)
+
+      expect( hand.to_s ).to eq("9 10 J Q K") # Sanity check
+
+      d1, _, d3, _, _ = *loaded_dice
+
+      # First, the hand should reroll dice #1 and #3
+      expect(d1).to receive(:roll!).once
+      expect(d3).to receive(:roll!).once
+
+      # Then, the hand should ask *all* the dice for their face values again
+      expect(d1).to receive(:face_value).and_return('10')
+      expect(d3).to receive(:face_value).and_return('10')
+
+      hand.reroll_dice(1, 3)
+
+      expect( hand.to_s ).to eq("10 10 10 Q K")
+    end
+  end
 end
 

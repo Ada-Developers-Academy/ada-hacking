@@ -15,6 +15,13 @@ module PokerDice
       dice.map(&:face_value).join(' ')
     end
 
+    def reroll_dice(*numbers_to_reroll)
+      numbers_to_reroll.each do |n|
+        index = n - 1
+        dice[index].roll!
+      end
+    end
+
     class Classifier
       attr_reader :dice
 
