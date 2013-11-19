@@ -34,12 +34,9 @@ class Calculator
     def call
       until tokens.empty?
         case tokens.first
-        when /\d+/          # Integer
-          process_integer!
-        when /[\+\-\*\/]/   # Operator
-          process_operator!
-        else
-          raise "I don't understand #{expression.inspect}"
+        when /\d+/        ; process_integer!
+        when /[\+\-\*\/]/ ; process_operator!
+        else raise "I don't understand #{expression.inspect}"
         end
       end
       accumulator
