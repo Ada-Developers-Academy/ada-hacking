@@ -23,7 +23,7 @@ class Calculator
     until tokens.empty?
       case tokens.first
       when /\d+/          # Integer
-        value = tokens.shift.to_i  # consume the token, then...
+        value = tokens.consume.to_i
         case
         when accumulator.nil? # should only be the first time through
           accumulator = value
@@ -33,7 +33,7 @@ class Calculator
           accumulator = accumulator.send(operator, value)
         end
       when /[\+\-\*\/]/   # Operator
-        operator = tokens.shift.to_sym # consume the token
+        operator = tokens.consume.to_sym
       else
         raise "I don't understand #{expression.inspect}"
       end
@@ -47,7 +47,11 @@ class Calculator
     end
 
     extend Forwardable
-    def_delegators :tokens, :empty?, :first, :shift
+    def_delegators :tokens, :empty?, :first
+
+    def consume
+      tokens.shift
+    end
 
     private
 
