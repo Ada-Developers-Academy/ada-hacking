@@ -20,15 +20,10 @@ module PokerDice
 
       def description
         case
-        when counts.values == [5]
-          "Five of a kind"
-        when counts.values.sort == [1, 4]
-          "Four of a kind"
-        when counts.values.sort == [2, 3]
-          "Full house"
-        when dice.map(&:numeric_value).sort == (1..5).to_a ||
-             dice.map(&:numeric_value).sort == (2..6).to_a
-          "Straight"
+        when five_of_a_kind? ; "Five of a kind"
+        when four_of_a_kind? ; "Four of a kind"
+        when full_house?     ; "Full house"
+        when straight?       ; "Straight"
         end
       end
 
@@ -40,6 +35,23 @@ module PokerDice
           counts[die.face_value] += 1
         end
         counts
+      end
+
+      def five_of_a_kind?
+        counts.values == [5]
+      end
+
+      def four_of_a_kind?
+        counts.values.sort == [1, 4]
+      end
+
+      def full_house?
+        counts.values.sort == [2, 3]
+      end
+
+      def straight?
+        numbers = dice.map(&:numeric_value).sort
+        numbers == (1..5).to_a || numbers == (2..6).to_a
       end
     end
   end
