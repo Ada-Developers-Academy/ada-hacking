@@ -18,11 +18,11 @@ class Calculator
   def evaluate(expression)
     accumulator = nil
     value, operator = nil, nil
-    tokens = expression.gsub(/\s+/, '').split(/\b/)
-    until tokens.empty?
-      case tokens.first
+    tokenizer = Tokenizer.new(expression)
+    until tokenizer.tokens.empty?
+      case tokenizer.tokens.first
       when /\d+/          # Integer
-        value = tokens.shift.to_i  # consume the token, then...
+        value = tokenizer.tokens.shift.to_i  # consume the token, then...
         case
         when accumulator.nil? # should only be the first time through
           accumulator = value
@@ -32,11 +32,24 @@ class Calculator
           accumulator = accumulator.send(operator, value)
         end
       when /[\+\-\*\/]/   # Operator
-        operator = tokens.shift.to_sym # consume the token
+        operator = tokenizer.tokens.shift.to_sym # consume the token
       else
         raise "I don't understand #{expression.inspect}"
       end
     end
     accumulator
+  end
+
+  class Tokenizer
+    def initialize(string)
+      @string = string
+    end
+
+    def tokens
+      @tokens ||=
+        begin
+          @string.gsub(/\s+/, '').split(/\b/)
+        end
+    end
   end
 end
