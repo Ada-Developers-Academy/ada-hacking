@@ -10,9 +10,13 @@ end
 
 describe HelloWorld do
   it "prints 'Hello, World!' to some output stream, using a test double" do
+    # arrange
     output = double('fake IO')
     expect(output).to receive(:puts).with("Hello, world!")
+    # act
     HelloWorld.new(output).go!
+    # # assert
+    # output.verify_expectations!  # not the actual method, just an example because I forget RSpec
   end
 
   it "prints 'Hello, World!' to some output stream, using a real IO object" do

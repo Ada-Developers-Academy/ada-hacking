@@ -6,3 +6,12 @@ Testing data
 - use factories (more flexible than fixtures, but still slow)
 - use test doubles (mocks, stubs, spies, etc)
 
+RSpec documentation
+- avoid rspec.info; it is waaaaay out of date
+- Use https://www.relishapp.com/rspec/ to get an idea of what you can do
+  - Core: covers describe, it, before, shared contexts, etc
+  - Expectations: equality, identity, "truthiness and existentialism" :D
+  - Mocks: stuff to do with test doubles
+- Use RSpec's RDoc to find details about how a specific method works
+  - http://rubydoc.info/gems/rspec-core/
+
