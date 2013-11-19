@@ -10,6 +10,7 @@ module PokerDice
       roll! if @numeric_value.nil?
       FACE_VALUES[@numeric_value]
     end
+    alias face_value to_s
 
     def roll!
       @numeric_value = random_numeric_value
