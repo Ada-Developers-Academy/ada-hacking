@@ -9,11 +9,11 @@ module PokerDice
 
     def description
       case
-      when counts.length == 1 && counts.values.first == 5
+      when counts.values == [5]
         "Five of a kind"
-      when counts.length == 2 && counts.values.max == 4
+      when counts.values.sort == [1, 4]
         "Four of a kind"
-      when counts.length == 2 && counts.values.max == 3
+      when counts.values.sort == [2, 3]
         "Full house"
       end
     end
