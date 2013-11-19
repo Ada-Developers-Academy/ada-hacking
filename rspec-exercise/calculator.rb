@@ -1,3 +1,4 @@
+require 'forwardable'
 class Calculator
   def add(*numbers)
     numbers.flatten.inject(0, &:+)
@@ -19,10 +20,10 @@ class Calculator
     accumulator = nil
     value, operator = nil, nil
     tokenizer = Tokenizer.new(expression)
-    until tokenizer.tokens.empty?
-      case tokenizer.tokens.first
+    until tokenizer.empty?
+      case tokenizer.first
       when /\d+/          # Integer
-        value = tokenizer.tokens.shift.to_i  # consume the token, then...
+        value = tokenizer.shift.to_i  # consume the token, then...
         case
         when accumulator.nil? # should only be the first time through
           accumulator = value
@@ -32,7 +33,7 @@ class Calculator
           accumulator = accumulator.send(operator, value)
         end
       when /[\+\-\*\/]/   # Operator
-        operator = tokenizer.tokens.shift.to_sym # consume the token
+        operator = tokenizer.shift.to_sym # consume the token
       else
         raise "I don't understand #{expression.inspect}"
       end
@@ -44,6 +45,11 @@ class Calculator
     def initialize(string)
       @string = string
     end
+
+    extend Forwardable
+    def_delegators :tokens, :empty?, :first, :shift
+
+    private
 
     def tokens
       @tokens ||=
