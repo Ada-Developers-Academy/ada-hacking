@@ -6,12 +6,10 @@ describe PokerDice::Die do
   end
 
   it "should have a face value of 9 when its numeric value is 1" do
-    nine = die(1)
-    expect( nine.to_s ).to eq('9')
+    expect( die(1).to_s ).to eq('9')
   end
 
   it "should have a face value of 10 when its numeric value is 2" do
-    ten = die(2)
-    expect( ten.to_s ).to eq('10')
+    expect( die(2).to_s ).to eq('10')
   end
 end
