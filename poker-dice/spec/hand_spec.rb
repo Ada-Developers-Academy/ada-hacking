@@ -14,6 +14,10 @@ describe PokerDice::Hand do
     it "recognizes four of a kind" do
       expect( hand(1, 1, 2, 1, 1).description ).to eq( "Four of a kind" )
     end
+
+    it "recognizes a full house" do
+      expect( hand(1, 1, 2, 2, 2).description ).to eq( "Full house" )
+    end
   end
 end
 

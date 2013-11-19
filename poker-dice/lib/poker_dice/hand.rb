@@ -13,6 +13,8 @@ module PokerDice
         "Five of a kind"
       when counts.length == 2 && counts.values.max == 4
         "Four of a kind"
+      when counts.length == 2 && counts.values.max == 3
+        "Full house"
       end
     end
 
