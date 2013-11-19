@@ -6,4 +6,8 @@ class Calculator
   def subtract(*numbers)
     numbers.inject(numbers.shift, &:-)
   end
+
+  def multiply(*numbers)
+    numbers.inject(1, &:*)
+  end
 end

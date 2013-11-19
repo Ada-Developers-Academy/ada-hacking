@@ -28,6 +28,16 @@ describe Calculator do
     end
   end
 
+  describe "multiplication" do
+    it "multiplies six by nine (but does not get forty-two)" do
+      expect( calculator.multiply(6, 9) ).to eq(54)
+    end
+
+    it "does factorials the long way" do
+      expect( calculator.multiply(1, 2, 3, 4, 5, 6) ).to eq(720)
+    end
+  end
+
   # IF YOU'RE BORED...
   describe "parsing for fun and profit", pending: true do
     it "does simple addition" do
