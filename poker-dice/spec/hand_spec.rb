@@ -29,5 +29,23 @@ describe PokerDice::Hand do
     it "recognizes one pair"
     it "recognizes a bust (high card, no pair, no straight)"
   end
+
+  describe "string representation" do
+    it "works for five of a kind" do
+      expect( hand(1, 1, 1, 1, 1).to_s ).to eq( "9 9 9 9 9" )
+    end
+
+    it "works for four of a kind" do
+      expect( hand(1, 1, 2, 1, 1).to_s ).to eq( "9 9 10 9 9" )
+    end
+
+    it "works for a full house" do
+      expect( hand(1, 1, 2, 2, 2).to_s ).to eq( "9 9 10 10 10" )
+    end
+
+    it "works for a straight" do
+      expect( hand(1, 2, 3, 4, 5).to_s ).to eq( "9 10 J Q K" )
+    end
+  end
 end
 

@@ -11,6 +11,10 @@ module PokerDice
       Classifier.new(dice).description
     end
 
+    def to_s
+      dice.map(&:face_value).join(' ')
+    end
+
     class Classifier
       attr_reader :dice
 
