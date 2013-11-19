@@ -15,7 +15,7 @@ describe Calculator do
   end
 
   # IF YOU'RE BORED...
-  describe "parsing for fun and profit" do
+  describe "parsing for fun and profit", pending: true do
     it "does simple addition" do
       expect( calculator.evaluate("2+2") ).to eq(4)
     end
