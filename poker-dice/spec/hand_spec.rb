@@ -1,43 +1,46 @@
 require_relative '../lib/poker_dice'
 
 describe PokerDice::Hand do
-  def hand(*numeric_values)
-    dice = numeric_values.map {|n| PokerDice::Die.new(n) }
+  def hand(*values)
+    if values.length == 1 && values.first.kind_of?(String)
+      values = values.first.split(/\s+/)
+    end
+    dice = values.map {|n| PokerDice::Die.new(n) }
     PokerDice::Hand.new(dice)
   end
 
   describe "scoring" do
     it "recognizes five of a kind" do
-      expect( hand(1, 1, 1, 1, 1).description ).to eq( "Five of a kind" )
+      expect( hand('9 9 9 9 9').description ).to eq( "Five of a kind" )
     end
 
     it "recognizes four of a kind" do
-      expect( hand(1, 1, 2, 1, 1).description ).to eq( "Four of a kind" )
+      expect( hand('9 9 10 9 9').description ).to eq( "Four of a kind" )
     end
 
     it "recognizes a full house" do
-      expect( hand(1, 1, 2, 2, 2).description ).to eq( "Full house" )
+      expect( hand('10 10 J J J').description ).to eq( "Full house" )
     end
 
     it "recognizes a straight" do
-      expect( hand(1, 2, 3, 4, 5).description ).to eq( "Straight" )
-      expect( hand(2, 3, 4, 5, 6).description ).to eq( "Straight" )
+      expect( hand('9 10 J Q K').description ).to eq( "Straight" )
+      expect( hand('10 J Q K A').description ).to eq( "Straight" )
     end
 
     it "recognizes three of a kind" do
-      expect( hand(1, 1, 1, 3, 4).description ).to eq( "Three of a kind" )
+      expect( hand('J J 9 J K').description ).to eq( "Three of a kind" )
     end
 
     it "recognizes two pair(s, dammit)" do
-      expect( hand(1, 1, 3, 3, 4).description ).to eq( "Two pair" )
+      expect( hand('Q A A Q 9').description ).to eq( "Two pair" )
     end
 
     it "recognizes one pair" do
-      expect( hand(1, 1, 3, 6, 4).description ).to eq( "One pair" )
+      expect( hand('10 K A 9 K').description ).to eq( "One pair" )
     end
 
     it "recognizes a bust (high card, no pair, no straight)" do
-      expect( hand(1, 2, 3, 4, 6).description ).to eq( "Bust" )
+      expect( hand('9 10 J Q A').description ).to eq( "Bust" )
     end
   end
 

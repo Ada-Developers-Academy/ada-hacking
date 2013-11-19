@@ -1,10 +1,19 @@
 module PokerDice
   class Die
     FACE_VALUES = %w[ _ 9 10 J Q K A ]
+    LEGAL_FACE_VALUES = FACE_VALUES[1..-1]
     attr_reader :numeric_value
 
-    def initialize(numeric_value = nil)
-      @numeric_value = numeric_value
+    def initialize(value = nil)
+      @numeric_value =
+        case
+        when LEGAL_FACE_VALUES.include?(value)
+          FACE_VALUES.index(value)
+        when value.kind_of?(Fixnum) || value.nil?
+          value
+        else
+          raise ArgumentError
+        end
     end
 
     def to_s

@@ -40,6 +40,9 @@ describe PokerDice::Die do
       expect( die(6) ).to have_face_value_of('A')
     end
 
+    it "should be able to be initialized with a face value" do
+      expect( die('Q') ).to have_face_value_of('Q')
+    end
   end
 
   describe "randomness" do
