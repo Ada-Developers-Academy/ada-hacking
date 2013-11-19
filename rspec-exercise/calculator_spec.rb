@@ -49,16 +49,16 @@ describe Calculator do
   end
 
   # IF YOU'RE BORED...
-  describe "parsing for fun and profit", pending: true do
+  describe "parsing for fun and profit" do
     it "does simple addition" do
       expect( calculator.evaluate("2+2") ).to eq(4)
     end
 
-    it "copes well with spaces" do
+    xit "copes well with spaces" do
       expect( calculator.evaluate("  2    + 2") ).to eq(4)
     end
 
-    it "understands order of operations" do
+    xit "understands order of operations" do
       expect( calculator.evaluate("2+2*5") ).to eq(12)
     end
   end
