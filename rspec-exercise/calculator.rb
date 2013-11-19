@@ -46,7 +46,7 @@ class Calculator
             self.accumulator = accumulator.send(operator, value)
           end
         when /[\+\-\*\/]/   # Operator
-          self.operator = tokens.consume.to_sym
+          process_operator!
         else
           raise "I don't understand #{expression.inspect}"
         end
@@ -55,6 +55,10 @@ class Calculator
     end
 
     private
+
+    def process_operator!
+      self.operator = tokens.consume.to_sym
+    end
 
     def tokens
       @tokens ||= Tokenizer.new(expression)
