@@ -1,0 +1,8 @@
+Testing data
+
+- use in-memory database instead of on-disk database
+- use a fake database object
+- use fixture data (not recommended; it's brittle)
+- use factories (more flexible than fixtures, but still slow)
+- use test doubles (mocks, stubs, spies, etc)
+
