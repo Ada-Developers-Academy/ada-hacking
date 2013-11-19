@@ -58,7 +58,7 @@ describe Calculator do
       expect( calculator.evaluate("2+2-1+4-7+5") ).to eq(5)
     end
 
-    xit "copes well with spaces" do
+    it "copes well with spaces" do
       expect( calculator.evaluate("  2    + 2") ).to eq(4)
     end
 
