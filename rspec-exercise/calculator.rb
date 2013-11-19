@@ -25,12 +25,11 @@ class Calculator
     def initialize(expression)
       @expression  = expression
       @accumulator = nil
-      @value       = nil
       @operator    = nil
     end
 
-    attr_accessor :accumulator, :value, :operator
-    private :accumulator, :value, :operator
+    attr_accessor :accumulator, :operator
+    private :accumulator, :operator
 
     def call
       until tokens.empty?
@@ -49,7 +48,7 @@ class Calculator
     private
 
     def process_integer!
-      self.value = tokens.consume.to_i
+      value = tokens.consume.to_i
       case
       when accumulator.nil? # should only be the first time through
         self.accumulator = value
