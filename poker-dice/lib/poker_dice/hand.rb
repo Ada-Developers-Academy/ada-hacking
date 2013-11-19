@@ -11,6 +11,8 @@ module PokerDice
       case
       when counts.length == 1 && counts.values.first == 5
         "Five of a kind"
+      when counts.length == 2 && counts.values.max == 4
+        "Four of a kind"
       end
     end
 
