@@ -23,6 +23,11 @@ describe PokerDice::Hand do
       expect( hand(1, 2, 3, 4, 5).description ).to eq( "Straight" )
       expect( hand(2, 3, 4, 5, 6).description ).to eq( "Straight" )
     end
+
+    it "recognizes three of a kind"
+    it "recognizes two pair(s, dammit)"
+    it "recognizes one pair"
+    it "recognizes a bust (high card, no pair, no straight)"
   end
 end
 
