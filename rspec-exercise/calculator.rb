@@ -36,15 +36,7 @@ class Calculator
       until tokens.empty?
         case tokens.first
         when /\d+/          # Integer
-          self.value = tokens.consume.to_i
-          case
-          when accumulator.nil? # should only be the first time through
-            self.accumulator = value
-          when operator.nil?
-            raise "I don't understand #{expression.inspect}"
-          else
-            self.accumulator = accumulator.send(operator, value)
-          end
+          process_integer!
         when /[\+\-\*\/]/   # Operator
           process_operator!
         else
@@ -55,6 +47,18 @@ class Calculator
     end
 
     private
+
+    def process_integer!
+      self.value = tokens.consume.to_i
+      case
+      when accumulator.nil? # should only be the first time through
+        self.accumulator = value
+      when operator.nil?
+        raise "I don't understand #{expression.inspect}"
+      else
+        self.accumulator = accumulator.send(operator, value)
+      end
+    end
 
     def process_operator!
       self.operator = tokens.consume.to_sym
