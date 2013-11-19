@@ -62,6 +62,8 @@ describe Calculator do
       expect( calculator.evaluate("  2    + 2") ).to eq(4)
     end
 
+    # This is going to require a change in parsing strategy
+    # by building up a parse tree...
     xit "understands order of operations" do
       expect( calculator.evaluate("2+2*5") ).to eq(12)
     end
