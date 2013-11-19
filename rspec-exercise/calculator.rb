@@ -1,5 +1,5 @@
 class Calculator
-  def add(a, b)
-    a + b
+  def add(*numbers)
+    numbers.flatten.inject(0, &:+)
   end
 end

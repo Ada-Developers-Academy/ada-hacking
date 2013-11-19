@@ -12,6 +12,10 @@ describe Calculator do
     it "puts two and two together" do
       expect( calculator.add(2, 2) ).to eq(4)
     end
+
+    it "puts two and two and two together" do
+      expect( calculator.add(2, 2, 2) ).to eq(6)
+    end
   end
 
   # IF YOU'RE BORED...
