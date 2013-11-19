@@ -1,0 +1,14 @@
+For more about Poker Dice, see:  http://en.wikipedia.org/wiki/Poker_dice
+
+From that page, here are the possible hands and their rankings:
+
+Hand                                   | Exact probability | Percentage | 1 in ... | Example
+Five of a kind                         | 6 / 7776          | 0.08%      | 1296     | J J J J J
+Four of a kind                         | 150 / 7776        | 1.93%      | 51.8     | 10 10 10 10 A
+Full house                             | 300 / 7776        | 3.86%      | 25.9     | K K K 9 9
+Straight                               | 240 / 7776        | 3.09%      | 32.4     | A K Q J 10
+Three of a kind                        | 1200 / 7776       | 15.43%     | 6.5      | 9 9 9 K J
+Two pair                               | 1800 / 7776       | 23.15%     | 4.3      | Q Q 9 9 A
+One pair                               | 3600 / 7776       | 46.30%     | 2.2      | 10 10 K Q 9
+Bust (High card, no pair, no straight) | 480 / 7776        | 6.17%      | 16.2     | A K Q J 9
+
