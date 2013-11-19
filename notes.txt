@@ -15,3 +15,21 @@ RSpec documentation
 - Use RSpec's RDoc to find details about how a specific method works
   - http://rubydoc.info/gems/rspec-core/
 
+KINDS OF TESTS
+- Unit tests generally have these characteristics:
+  - fast
+  - isolated (from file system, from database, from I/O, ...)
+  - tend to use doubles (mocks and stubs)
+- Integration tests
+  - tend to set up scenarios, invoke code, and verify state
+    - see also: blog post: "Mocks Aren't Stubs" by Martin Fowler
+  - "short-span": only testing a few interacting objects, e.g., a subsystem
+  - "full stack": the whole enchilada
+  - May still focus on a specific scenario or edge case
+- Acceptance test
+  - *might* be written by a user (or at least a product manager), if you're lucky
+  - *should* be readable by them
+  - describe some scenario in terms that a user cares about
+    - ex:  "When I update my profile"
+      versus "When I click on the 'my profile' link, go to the profile page, and enter 'Sam' in the first name field... blah blah blah"
+

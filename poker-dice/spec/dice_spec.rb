@@ -48,6 +48,7 @@ describe PokerDice::Die do
   describe "randomness" do
     ACCEPTABLE_VALUES = %w[ 9 10 J Q K A ]
 
+
     it "should lazily choose a random face value if we don't assign a numeric_value on creation" do
       random_die = PokerDice::Die.new
       expect( ACCEPTABLE_VALUES ).to include(random_die.to_s)  # this reads "backward".I blame RSpec.
