@@ -31,10 +31,14 @@ module PokerDice
 
       def description
         case
-        when five_of_a_kind? ; "Five of a kind"
-        when four_of_a_kind? ; "Four of a kind"
-        when full_house?     ; "Full house"
-        when straight?       ; "Straight"
+        when five_of_a_kind?  ; "Five of a kind"
+        when four_of_a_kind?  ; "Four of a kind"
+        when full_house?      ; "Full house"
+        when straight?        ; "Straight"
+        when three_of_a_kind? ; "Three of a kind"
+        when two_pair?        ; "Two pair"
+        when one_pair?        ; "One pair"
+        else                    "Bust"
         end
       end
 
@@ -63,6 +67,18 @@ module PokerDice
       def straight?
         numbers = dice.map(&:numeric_value).sort
         numbers == (1..5).to_a || numbers == (2..6).to_a
+      end
+
+      def three_of_a_kind?
+        counts.values.sort == [1, 1, 3]
+      end
+
+      def two_pair?
+        counts.values.sort == [1, 2, 2]
+      end
+
+      def one_pair?
+        counts.values.sort == [1, 1, 1, 2]
       end
     end
   end
