@@ -1,6 +1,7 @@
 module PokerDice
   class Die
     FACE_VALUES = %w[ _ 9 10 J Q K A ]
+    attr_reader :numeric_value
 
     def initialize(numeric_value = nil)
       @numeric_value = numeric_value

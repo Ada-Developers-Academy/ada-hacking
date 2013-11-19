@@ -15,6 +15,9 @@ module PokerDice
         "Four of a kind"
       when counts.values.sort == [2, 3]
         "Full house"
+      when dice.map(&:numeric_value).sort == (1..5).to_a ||
+           dice.map(&:numeric_value).sort == (2..6).to_a
+        "Straight"
       end
     end
 

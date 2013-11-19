@@ -18,6 +18,11 @@ describe PokerDice::Hand do
     it "recognizes a full house" do
       expect( hand(1, 1, 2, 2, 2).description ).to eq( "Full house" )
     end
+
+    it "recognizes a straight" do
+      expect( hand(1, 2, 3, 4, 5).description ).to eq( "Straight" )
+      expect( hand(2, 3, 4, 5, 6).description ).to eq( "Straight" )
+    end
   end
 end
 
