@@ -1,6 +1,6 @@
 module PokerDice
   class Die
-    FACE_VALUES = %w[ _ 9 ]
+    FACE_VALUES = %w[ _ 9 10 ]
 
     def initialize(numeric_value)
       @numeric_value = numeric_value

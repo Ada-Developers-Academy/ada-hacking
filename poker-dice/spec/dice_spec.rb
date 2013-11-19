@@ -9,4 +9,9 @@ describe PokerDice::Die do
     nine = die(1)
     expect( nine.to_s ).to eq('9')
   end
+
+  it "should have a face value of 10 when its numeric value is 2" do
+    ten = die(2)
+    expect( ten.to_s ).to eq('10')
+  end
 end
