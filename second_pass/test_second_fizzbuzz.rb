@@ -2,7 +2,7 @@ require_relative 'fizzbuzz_function'
 
 def assert(condition, failure_message)
   unless condition
-    raise failure_message
+    puts failure_message
   end
 end
 
@@ -13,19 +13,13 @@ def assert_equality(expected, actual)
 end
 
 # Test 1
-actual = fizzbuzz_of(1)
-expected = 1
-assert_equality expected, actual
+assert_equality 1, fizzbuzz_of(1)
 
 # Test 2
-actual = fizzbuzz_of(2)
-expected = 2
-assert_equality expected, actual
+assert_equality 2, fizzbuzz_of(2)
 
 # Test 3
-actual = fizzbuzz_of(3)
-expected = 'Fizz'
-assert_equality expected, actual
+assert_equality 'Fizz', fizzbuzz_of(3)
 
 # If we got here, everything passed
 puts "SUCCESS!"
