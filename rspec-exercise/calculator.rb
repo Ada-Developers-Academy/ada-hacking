@@ -18,7 +18,7 @@ class Calculator
   def evaluate(expression)
     accumulator = nil
     value, operator = nil, nil
-    tokens = expression.split(/\b/)
+    tokens = expression.gsub(/\s+/, '').split(/\b/)
     until tokens.empty?
       case tokens.first
       when /\d+/          # Integer
