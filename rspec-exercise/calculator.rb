@@ -10,4 +10,8 @@ class Calculator
   def multiply(*numbers)
     numbers.inject(1, &:*)
   end
+
+  def divide(*numbers)
+    numbers.inject(numbers.shift, &:/)
+  end
 end

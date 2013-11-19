@@ -38,6 +38,16 @@ describe Calculator do
     end
   end
 
+  describe "division" do
+    it "halves" do
+      expect( calculator.divide(4, 2) ).to eq(2)
+    end
+
+    it "subdivides" do
+      expect( calculator.divide(128, 2, 2, 2) ).to eq(16)
+    end
+  end
+
   # IF YOU'RE BORED...
   describe "parsing for fun and profit", pending: true do
     it "does simple addition" do
