@@ -33,3 +33,6 @@ KINDS OF TESTS
     - ex:  "When I update my profile"
       versus "When I click on the 'my profile' link, go to the profile page, and enter 'Sam' in the first name field... blah blah blah"
 
+--
+
+Possibly also of interest:  https://github.com/geeksam/tdd-fizzbuzz
